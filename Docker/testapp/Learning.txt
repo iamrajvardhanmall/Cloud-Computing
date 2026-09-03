@@ -1,0 +1,71 @@
+--> To Run docker file: 
+a.) Move inside testapp
+b.) docker build -t testapp:1.0 .
+
+C:\Users\Lenovo\Downloads\Docker\testapp>docker build -t testapp:1.0 .
+[+] Building 81.3s (9/9) FINISHED                      docker:desktop-linux
+ => [internal] load build definition from Dockerfile                   0.1s
+ => => transferring dockerfile: 191B                                   0.0s
+ => [internal] load metadata for docker.io/library/node:latest         3.4s
+ => [auth] library/node:pull token for registry-1.docker.io            0.0s
+ => [internal] load .dockerignore                                      0.0s
+ => => transferring context: 2B                                        0.0s
+ => [1/3] FROM docker.io/library/node:latest@sha256:bde0dae02f2b12d2  70.7s
+ => => resolve docker.io/library/node:latest@sha256:bde0dae02f2b12d2b  0.0s
+ => => sha256:1da3cb2f93f2ca3c5bdaf4c024a7f1ebd717 49.31MB / 49.31MB  20.5s
+ => => sha256:e7e80b46ea4e7e5f45a6a00ffa88cb34495f 63.88MB / 63.88MB  28.3s
+ => => sha256:7377a6b98a028291c5ebedef3469d02252a1af6f1e8 447B / 447B  1.1s
+ => => sha256:d74736caedd40737be802d27bfe1d5d0e1 236.32MB / 236.32MB  53.1s
+ => => sha256:755d4732e515433a72779ed3f51106434c5dee3 3.33kB / 3.33kB  0.4s
+ => => sha256:68b64c51cda3d04397bcf5742a29a9a1ba7a 25.64MB / 25.64MB  13.1s
+ => => sha256:ec935196e6a095bdd6ac865248321ea4fd33 67.80MB / 67.80MB  21.0s
+ => => extracting sha256:1da3cb2f93f2ca3c5bdaf4c024a7f1ebd717938d20c8  1.9s
+ => => extracting sha256:68b64c51cda3d04397bcf5742a29a9a1ba7adcfd18a3  1.4s
+ => => extracting sha256:ec935196e6a095bdd6ac865248321ea4fd33424071fe  2.2s
+ => => extracting sha256:d74736caedd40737be802d27bfe1d5d0e10377ddb1c  13.1s
+ => => extracting sha256:755d4732e515433a72779ed3f51106434c5dee3ad95a  0.1s
+ => => extracting sha256:e7e80b46ea4e7e5f45a6a00ffa88cb34495f6fd38577  3.6s
+ => => extracting sha256:7377a6b98a028291c5ebedef3469d02252a1af6f1e87  0.1s
+ => [internal] load build context                                      8.0s
+ => => transferring context: 9.96MB                                    8.0s
+ => [2/3] RUN mkdir -p testapp                                         4.6s
+ => [3/3] COPY . /testapp                                              1.0s
+ => exporting to image                                                 1.3s
+ => => exporting layers                                                0.7s
+ => => exporting manifest sha256:d4f49b8b0a7458e4cbfda9e9a799439c85a1  0.0s
+ => => exporting config sha256:4dc1cb7263fb3548382d132c07954554778c05  0.0s
+ => => exporting attestation manifest sha256:02fdcec5967330d45f2ccf56  0.1s
+ => => exporting manifest list sha256:ddaf0abb062cf6721d4e6a1fc608806  0.0s
+ => => naming to docker.io/library/testapp:1.0                         0.0s
+ => => unpacking to docker.io/library/testapp:1.0                      0.3s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/i6c3t72b3owzoxlrc1uacjsvp
+
+C:\Users\Lenovo\Downloads\Docker\testapp>docker images
+                                                        i Info →   U  In Use
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+mongo-express:latest   1b23d7976f02        287MB         59.8MB
+mongo:latest           e0ce8c35124d        1.3GB          339MB
+mysql:8.0              7dcddc01f13b        1.1GB          249MB    U
+mysql:latest           66aec17cd21a        1.3GB          290MB
+testapp:1.0            ddaf0abb062c       1.79GB          445MB
+
+C:\Users\Lenovo\Downloads\Docker\testapp>docker run testapp:1.0
+server running on port 5050
+
+
+
+
+
+
+
+--> To go inside testapp
+C:\Users\Lenovo>docker run -it testapp:1.0 bash
+root@66bb3f14595b:/# ls
+bin   dev  home  lib64  mnt  proc  run   srv  testapp  usr
+boot  etc  lib   media  opt  root  sbin  sys  tmp      var
+root@66bb3f14595b:/# cd testapp/
+root@66bb3f14595b:/testapp# ls
+Dockerfile  Learning.txt  mongodb.yaml  package-lock.json  public
+Layer.png   README.md     node_modules  package.json       server.js
+root@66bb3f14595b:/testapp#
