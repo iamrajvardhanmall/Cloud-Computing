@@ -1,0 +1,112 @@
+| Task            | Command                          |
+| --------------- | -------------------------------- |
+| Start           | `sudo systemctl start jenkins`   |
+| Stop            | `sudo systemctl stop jenkins`    |
+| Restart         | `sudo systemctl restart jenkins` |
+| Status          | `sudo systemctl status jenkins`  |
+| Enable at boot  | `sudo systemctl enable jenkins`  |
+| Disable at boot | `sudo systemctl disable jenkins` |
+
+1.) Jenkins Dashboard Overview
+
+2.) Jenkins First Job
+--> By default, it listen on 8080 port number.
+--> To access it from browser externally, we need to enable it on firewall
+--> Give Jenkins to write in a given folder: namei -l /home/rajvardhan-mall/Downloads/Cloud-Computing/Jenkins
+
+
+3.) Run Bash Script with Job
+rajvardhan-mall@rajvardhan-mall-VirtualBox:~$ touch basic.sh
+rajvardhan-mall@rajvardhan-mall-VirtualBox:~$ bash basic.sh
+This is from script under Jenkins
+
+--> Run using jenkins
+Step: Go to Build Steps --> Execute shell --> Write commands
+echo "Hello BUDDY!!"
+echo "Hello BUDDY!!" > /home/rajvardhan-mall/Downloads/Cloud-Computing/Jenkins/first_jenkins_job.txt
+bash /home/rajvardhan-mall/basic.sh
+
+
+4.) Job with parameters
+Step: Go to Build Steps --> Execute shell --> Write commands
+echo "Hello BUDDY!!"
+echo "Hello BUDDY!!" > /home/rajvardhan-mall/Downloads/Cloud-Computing/Jenkins/first_jenkins_job.txt
+bash /home/rajvardhan-mall/basic.sh
+echo $FNAME $LNAME $SEX
+
+
+5.) Scheduling Jenkins Jobs
+--> Build "Cron-Job"
+
+
+6.) Working with Github
+Step1: Go to https://github.com/iamrajvardhanmall/Jenkins_Demo.git --> Copy the HTTPS URLs
+Jenkins plugins:
+Step2: Make a new item named git-demo
+Step3: Add github url and configure to it
+
+'''
+rajvardhan-mall@rajvardhan-mall-VirtualBox:~$ cd /var/lib/jenkins/
+rajvardhan-mall@rajvardhan-mall-VirtualBox:/var/lib/jenkins$ ls
+config.xml                                                               jobs
+hudson.model.UpdateCenter.xml                                            logs
+hudson.plugins.git.GitTool.xml                                           nodeMonitors.xml
+identity.key.enc                                                         plugins
+io.jenkins.plugins.pipelinegraphview.PipelineGraphViewConfiguration.xml  queue.xml
+io.jenkins.plugins.prism.PrismAppearanceConfiguration.xml                queue.xml.bak
+io.jenkins.plugins.thememanager.ThemeManagerPageDecorator.xml            secret.key
+jenkins.console.ConsoleUrlProviderGlobalConfiguration.xml                secret.key.not-so-secret
+jenkins.install.InstallUtil.lastExecVersion                              secrets
+jenkins.install.UpgradeWizard.state                                      updates
+jenkins.model.JenkinsLocationConfiguration.xml                           userContent
+jenkins.security.apitoken.ApiTokenPropertyConfiguration.xml              users
+jenkins.telemetry.Correlator.xml                                         workspace
+rajvardhan-mall@rajvardhan-mall-VirtualBox:/var/lib/jenkins$ cd workspace/
+rajvardhan-mall@rajvardhan-mall-VirtualBox:/var/lib/jenkins/workspace$ ls -ltr
+total 12
+drwxr-xr-x 2 jenkins jenkins 4096 Oct  8 10:27 first-job
+drwxr-xr-x 2 jenkins jenkins 4096 Oct  8 12:05 cron-job
+drwxr-xr-x 3 jenkins jenkins 4096 Oct 19 20:34 git-demo
+rajvardhan-mall@rajvardhan-mall-VirtualBox:/var/lib/jenkins/workspace$ pwd
+/var/lib/jenkins/workspace
+rajvardhan-mall@rajvardhan-mall-VirtualBox:/var/lib/jenkins/workspace$ ls -ltr
+total 12
+drwxr-xr-x 2 jenkins jenkins 4096 Oct  8 10:27 first-job
+drwxr-xr-x 2 jenkins jenkins 4096 Oct  8 12:05 cron-job
+drwxr-xr-x 3 jenkins jenkins 4096 Oct 19 20:34 git-demo
+rajvardhan-mall@rajvardhan-mall-VirtualBox:/var/lib/jenkins/workspace$ cd git-demo/
+rajvardhan-mall@rajvardhan-mall-VirtualBox:/var/lib/jenkins/workspace/git-demo$ ls
+text.py
+'''
+
+Step4: Run python file
+Path: git-demo --> Build step --> Execute shell --> python3 text.py
+Step5: Build Now
+
+
+7.) Auto GITHUB Repo polling
+--> Go to git-demo --> Configure --> Triggers --> Poll SCM --> Schedule --> ***** (Every minute) --> Save
+This help us to Automate Build.
+
+
+8.) Working with remote server
+
+
+
+11.) Environment Variables
+
+
+
+12.) Maven in Jenkins
+--> Maven is a build automation tool used primarily for Java Projects.
+
+
+
+
+XX.) Jenkins Pipeline
+DOCUMENTATION: jenkins.io/doc/book/pipeline
+
+**Multi-Steps Pipeline Step**
+**Retry Steps in Jenkins Pipeline**
+**Timeout Function in Jenkins**
+**Environment variable in Jenkins Script**
