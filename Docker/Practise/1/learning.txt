@@ -1,0 +1,2 @@
+docker build -t docker-web:v1 .
+docker run -d --name mywebsite -p 8082:80 docker-web:v1
