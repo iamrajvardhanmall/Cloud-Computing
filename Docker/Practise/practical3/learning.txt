@@ -1,0 +1,2 @@
+docker build -t practical3 .
+docker run --name python-app practical3
