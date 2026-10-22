@@ -1,0 +1,9 @@
+kubectl apply -f deployment.yaml
+kubectl get deployments
+kubectl get pods
+kubectl describe deployment my-deployment
+kubectl get replicasets
+kubectl scale deployment my-deployment --replicas=5
+kubectl get pods
+kubectl scale deployment my-deployment --replicas=2
+kubectl delete -f deployment.yaml
